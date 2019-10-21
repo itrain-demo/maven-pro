@@ -4,17 +4,17 @@ node {
     git credentialsId: 'githubid', url: 'https://github.com/itrainpadman/maven-examples.git'  
    }
    stage('Code Build') {
-    withMaven(jdk: 'JDK-1.8', maven: 'Maven-3.6.1') {
+    withMaven(jdk: 'JDK-1.8', maven: 'Maven3.6.1') {
      sh 'mvn clean compile'
     }  
    }
    stage('Unit Test') {
-       withMaven(jdk: 'JDK-1.8', maven: 'Maven-3.6.1') {
+       withMaven(jdk: 'JDK-1.8', maven: 'Maven3.6.1') {
         sh 'mvn test'
      }  
    }
    stage('SonarQube Analysis') {
-       withMaven(jdk: 'JDK-1.8', maven: 'Maven-3.6.1') {
+       withMaven(jdk: 'JDK-1.8', maven: 'Maven3.6.1') {
        sh 'mvn sonar:sonar \
            -Dsonar.projectKey=maven-example-padman \
            -Dsonar.organization=itrainpadman \
