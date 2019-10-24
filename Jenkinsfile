@@ -4,22 +4,22 @@ node {
     git credentialsId: 'githubid', url: 'https://github.com/itrainpadman/maven-examples.git'  
    }
    stage('Code Build') {
-    withMaven(jdk: 'JDK-1.8', maven: 'Maven3.6.1') {
+    withMaven(jdk: 'jdk', maven: 'mavn') {
      sh 'mvn clean compile'
     }  
    }
    stage('Unit Test') {
-       withMaven(jdk: 'JDK-1.8', maven: 'Maven3.6.1') {
+       withMaven(jdk: 'jdk: 'jdk', maven: 'mavn') {
         sh 'mvn test'
      }  
    }
    stage('SonarQube Analysis') {
-       withMaven(jdk: 'JDK-1.8', maven: 'Maven3.6.1') {
-       sh 'mvn sonar:sonar \
-           -Dsonar.projectKey=maven-example-padman \
-           -Dsonar.organization=itrainpadman \
-           -Dsonar.host.url=https://sonarcloud.io \
-           -Dsonar.login=ef4b147fcb4eea67d0e0a5a182f4b85289f2c8c1'
+       withMaven(jdk: 'jdk', maven: 'mavn') {
+       mvn verify sonar:sonar \
+  -Dsonar.projectKey=maven-examplle-itraindemo \
+  -Dsonar.organization=itraindemo \
+  -Dsonar.host.url=https://sonarcloud.io \
+  -Dsonar.login=6653f80343799f05f8084f1df17bc79b444158de
        }
    } 
    stage('Archive to Jfrog') {
