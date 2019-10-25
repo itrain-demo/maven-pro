@@ -9,7 +9,7 @@ node {
     }  
    }
    stage('Unit Test') {
-       withMaven(jdk: 'jdk: 'jdk', maven: 'mavn') {
+       withMaven(jdk: 'jdk', maven: 'mavn') {
         sh 'mvn test'
      }  
    }
