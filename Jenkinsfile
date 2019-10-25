@@ -15,7 +15,7 @@ node {
    }
    stage('SonarQube Analysis') {
        withMaven(jdk: 'jdk', maven: 'mavn') {
-     sh 'mvn verify sonar:sonar \
+     sh 'mvn sonar:sonar \
          -Dsonar.projectKey=maven-examplle-itraindemo \
          -Dsonar.organization=itraindemo \
          -Dsonar.host.url=https://sonarcloud.io \
